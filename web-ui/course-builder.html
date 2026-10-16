@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EduBuilder Pro - Course Creator</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Lexend', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .active-nav { border-left: 4px solid #137fec; background: rgba(19, 127, 236, 0.1); }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white min-h-screen">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-50 w-full border-b border-solid border-[#233648] bg-background-light dark:bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-3">
+<div class="flex items-center justify-between max-w-[1440px] mx-auto">
+<div class="flex items-center gap-4">
+<div class="size-8 bg-primary rounded-lg flex items-center justify-center text-white">
+<span class="material-symbols-outlined">auto_stories</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight hidden md:block">EduBuilder Pro</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium hover:text-primary transition-colors text-primary" href="#">Course Builder</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Students</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Analytics</a>
+</nav>
+<div class="flex items-center gap-3">
+<button class="hidden sm:flex items-center justify-center rounded-lg h-10 px-4 bg-[#233648] text-white text-sm font-bold transition-all hover:bg-[#2d455c]">
+<span class="truncate">Save Draft</span>
+</button>
+<button class="flex items-center justify-center rounded-lg h-10 px-4 bg-primary text-white text-sm font-bold transition-all hover:opacity-90 shadow-lg shadow-primary/20">
+<span class="truncate">Publish Course</span>
+</button>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border-2 border-primary/20" data-alt="Instructor profile avatar" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDNoQ4TpBBvBjREgGgeMKm0bhf2sWbFHf9Guj_CepoqH3VAczdjDvTckjTy8DpH5fH4uxlPzh-w544hBqwis52gt4LIZgOfK2KhqdOTb725t4yNfBVFh1YZYCYYc6jouJ7YxQKhkzMAnFWRuSZ9JGR24xFAWU2ct8xq1ZnldPFpKm3cxQcmk_WFyN7JWhz4JS5dhvWW9dOizdZMIjswCK8_XAuUTIwI2aZuoGp3NA9c9gypA4xO6xU17Fp4fjI3kyZOTfKAKnlZI9w");'></div>
+</div>
+</div>
+</header>
+<main class="flex max-w-[1440px] mx-auto px-6 lg:px-20 py-8 gap-8">
+<!-- Sidebar Navigation -->
+<aside class="hidden lg:flex flex-col w-64 shrink-0 gap-6 sticky top-24 self-start">
+<div class="flex flex-col gap-1">
+<h1 class="text-base font-bold text-primary px-3 mb-2 uppercase tracking-widest text-[10px]">Current Project</h1>
+<p class="text-slate-400 text-sm px-3 mb-4 truncate">Draft - Intro to UX Design</p>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg active-nav text-primary font-semibold" href="#course-info">
+<span class="material-symbols-outlined text-[20px]">info</span>
+<span class="text-sm">Course Info</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-200 dark:hover:bg-[#233648] transition-all text-slate-600 dark:text-slate-300" href="#lessons">
+<span class="material-symbols-outlined text-[20px]">menu_book</span>
+<span class="text-sm">Add Lessons</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-200 dark:hover:bg-[#233648] transition-all text-slate-600 dark:text-slate-300" href="#quiz">
+<span class="material-symbols-outlined text-[20px]">quiz</span>
+<span class="text-sm">Quiz Builder</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-slate-200 dark:hover:bg-[#233648] transition-all text-slate-600 dark:text-slate-300" href="#settings">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+</nav>
+</div>
+<div class="mt-8 p-4 bg-primary/5 rounded-xl border border-primary/10">
+<div class="flex justify-between items-center mb-2">
+<span class="text-xs font-bold uppercase tracking-wider text-primary">Course Progress</span>
+<span class="text-xs font-bold text-primary">65%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-1.5">
+<div class="bg-primary h-1.5 rounded-full" style="width: 65%"></div>
+</div>
+<p class="text-[10px] mt-2 text-slate-500">Almost there! Complete the Quiz to publish.</p>
+</div>
+</aside>
+<!-- Main Content Area -->
+<div class="flex-1 max-w-[840px] flex flex-col gap-10">
+<!-- Header -->
+<section id="header">
+<h1 class="text-4xl font-black leading-tight tracking-tight mb-2">Create New Course</h1>
+<p class="text-slate-500 dark:text-[#92adc9] text-base">Fill in the details below to start building your comprehensive curriculum.</p>
+</section>
+<!-- Course Info Section -->
+<section class="space-y-6" id="course-info">
+<div class="flex items-center gap-2 border-b border-slate-200 dark:border-slate-800 pb-3">
+<span class="material-symbols-outlined text-primary">info</span>
+<h2 class="text-xl font-bold">Course Metadata</h2>
+</div>
+<div class="grid grid-cols-1 gap-6 bg-white dark:bg-[#192633] p-6 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Course Title</label>
+<input class="w-full rounded-lg bg-slate-50 dark:bg-[#101922] border border-slate-200 dark:border-[#324d67] focus:ring-2 focus:ring-primary focus:border-transparent h-12 px-4 text-base transition-all" placeholder="e.g. Advanced User Experience Design Patterns" type="text"/>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Course Description</label>
+<textarea class="w-full rounded-lg bg-slate-50 dark:bg-[#101922] border border-slate-200 dark:border-[#324d67] focus:ring-2 focus:ring-primary focus:border-transparent p-4 text-base transition-all resize-none" placeholder="Briefly describe what students will learn..." rows="4"></textarea>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Category</label>
+<select class="w-full rounded-lg bg-slate-50 dark:bg-[#101922] border border-slate-200 dark:border-[#324d67] h-12 px-4 focus:ring-primary">
+<option>Design</option>
+<option>Development</option>
+<option>Business</option>
+</select>
+</div>
+<div class="flex flex-col gap-2">
+<label class="text-sm font-semibold text-slate-700 dark:text-slate-300">Difficulty Level</label>
+<select class="w-full rounded-lg bg-slate-50 dark:bg-[#101922] border border-slate-200 dark:border-[#324d67] h-12 px-4 focus:ring-primary">
+<option>Beginner</option>
+<option>Intermediate</option>
+<option>Advanced</option>
+</select>
+</div>
+</div>
+</div>
+</section>
+<!-- Lessons Section -->
+<section class="space-y-6" id="lessons">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">menu_book</span>
+<h2 class="text-xl font-bold">Curriculum &amp; Lessons</h2>
+</div>
+<button class="flex items-center gap-2 text-sm font-bold text-primary hover:bg-primary/10 px-3 py-1.5 rounded-lg transition-all">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+                        New Lesson
+                    </button>
+</div>
+<div class="flex flex-col gap-4">
+<!-- Lesson Card -->
+<div class="bg-white dark:bg-[#192633] rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden shadow-sm">
+<div class="p-4 bg-slate-50 dark:bg-[#233648]/30 flex items-center justify-between border-b border-slate-200 dark:border-slate-800">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-slate-400 cursor-grab">drag_indicator</span>
+<span class="text-xs font-bold text-primary bg-primary/10 px-2 py-0.5 rounded">LESSON 1</span>
+<input class="bg-transparent border-none p-0 text-sm font-bold focus:ring-0 w-64" type="text" value="Introduction to User Centered Design"/>
+</div>
+<div class="flex items-center gap-2">
+<button class="p-1.5 text-slate-400 hover:text-red-500 transition-colors">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+<button class="p-1.5 text-slate-400 hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">expand_less</span>
+</button>
+</div>
+</div>
+<div class="p-6 space-y-4">
+<!-- Text Editor Interface -->
+<div class="rounded-lg border border-slate-200 dark:border-slate-700 overflow-hidden">
+<div class="bg-slate-50 dark:bg-[#1a2530] border-b border-slate-200 dark:border-slate-700 p-2 flex gap-1 items-center flex-wrap">
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">format_bold</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">format_italic</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">format_underlined</span></button>
+<div class="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1"></div>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">format_list_bulleted</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">format_list_numbered</span></button>
+<div class="w-px h-6 bg-slate-300 dark:bg-slate-700 mx-1"></div>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">image</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">video_library</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">link</span></button>
+<button class="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 rounded text-slate-600 dark:text-slate-300"><span class="material-symbols-outlined text-[18px]">code</span></button>
+</div>
+<textarea class="w-full bg-white dark:bg-[#101922] border-none focus:ring-0 p-6 text-base leading-relaxed" placeholder="Start writing lesson content..." rows="8"></textarea>
+</div>
+<div class="flex items-center gap-4">
+<div class="flex-1 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-lg p-6 flex flex-col items-center justify-center text-slate-400 hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-[32px] mb-2">cloud_upload</span>
+<p class="text-sm font-medium">Click to upload video tutorial</p>
+<p class="text-[10px] mt-1">MP4, MOV up to 500MB</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Quiz Builder Section -->
+<section class="space-y-6" id="quiz">
+<div class="flex items-center justify-between border-b border-slate-200 dark:border-slate-800 pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">quiz</span>
+<h2 class="text-xl font-bold">Quiz Builder</h2>
+</div>
+</div>
+<div class="bg-white dark:bg-[#192633] rounded-xl border border-slate-200 dark:border-slate-800 p-6 space-y-8">
+<!-- Quiz Header Info -->
+<div class="flex flex-col gap-4 border-b border-slate-100 dark:border-slate-800 pb-6">
+<div class="flex flex-col gap-2">
+<label class="text-xs font-bold uppercase tracking-widest text-slate-500">Quiz Title</label>
+<input class="bg-transparent border-b-2 border-slate-200 dark:border-slate-800 focus:border-primary focus:ring-0 p-0 py-1 text-lg font-bold transition-all" type="text" value="Fundamentals Assessment"/>
+</div>
+<div class="flex gap-6">
+<div class="flex items-center gap-2">
+<span class="text-xs font-semibold">Passing Score:</span>
+<input class="w-16 h-8 bg-slate-50 dark:bg-slate-800 border-none rounded text-center text-sm font-bold" type="number" value="80"/>
+<span class="text-xs font-semibold">%</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="text-xs font-semibold">Time Limit:</span>
+<input class="w-16 h-8 bg-slate-50 dark:bg-slate-800 border-none rounded text-center text-sm font-bold" type="number" value="15"/>
+<span class="text-xs font-semibold">min</span>
+</div>
+</div>
+</div>
+<!-- Question Module -->
+<div class="space-y-6">
+<div class="p-5 bg-slate-50 dark:bg-[#101922] rounded-lg border border-slate-200 dark:border-slate-800 relative">
+<div class="flex items-start justify-between mb-4">
+<div class="flex-1 flex flex-col gap-2">
+<span class="text-xs font-bold text-primary">QUESTION 1</span>
+<input class="w-full bg-transparent border-none focus:ring-0 p-0 text-base font-semibold placeholder:text-slate-400" placeholder="Type your MCQ question here..." type="text"/>
+</div>
+<button class="text-slate-400 hover:text-red-500 transition-colors p-1">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+<div class="space-y-3">
+<!-- Option 1 -->
+<div class="flex items-center gap-3 group">
+<input checked="" class="w-5 h-5 text-primary bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary" name="q1" type="radio"/>
+<div class="flex-1 flex items-center bg-white dark:bg-[#1a2530] border border-slate-200 dark:border-slate-700 rounded-lg px-3 h-10 group-focus-within:border-primary transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm" type="text" value="Empathy for the user"/>
+</div>
+<span class="text-[10px] font-bold text-primary opacity-100 uppercase tracking-tighter">Correct</span>
+</div>
+<!-- Option 2 -->
+<div class="flex items-center gap-3 group">
+<input class="w-5 h-5 text-primary bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary" name="q1" type="radio"/>
+<div class="flex-1 flex items-center bg-white dark:bg-[#1a2530] border border-slate-200 dark:border-slate-700 rounded-lg px-3 h-10 group-focus-within:border-primary transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm" placeholder="Add option..." type="text"/>
+</div>
+</div>
+<!-- Option 3 -->
+<div class="flex items-center gap-3 group">
+<input class="w-5 h-5 text-primary bg-slate-100 dark:bg-slate-800 border-slate-300 dark:border-slate-700 focus:ring-primary" name="q1" type="radio"/>
+<div class="flex-1 flex items-center bg-white dark:bg-[#1a2530] border border-slate-200 dark:border-slate-700 rounded-lg px-3 h-10 group-focus-within:border-primary transition-all">
+<input class="w-full bg-transparent border-none focus:ring-0 text-sm" placeholder="Add option..." type="text"/>
+</div>
+</div>
+</div>
+<button class="mt-4 text-xs font-bold text-slate-400 hover:text-primary flex items-center gap-1 px-1 py-1 transition-colors">
+<span class="material-symbols-outlined text-[16px]">add</span>
+                                Add Option
+                            </button>
+</div>
+<button class="w-full py-4 border-2 border-dashed border-slate-200 dark:border-slate-800 rounded-xl text-slate-400 hover:text-primary hover:border-primary hover:bg-primary/5 transition-all font-bold flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+                            Add Next Question
+                        </button>
+</div>
+</section>
+<!-- Footer / Submit -->
+<footer class="flex items-center justify-end gap-4 py-10 border-t border-slate-200 dark:border-slate-800">
+<span class="text-xs text-slate-500 italic mr-auto">Last saved: 2 minutes ago</span>
+<button class="px-6 py-3 rounded-xl bg-slate-200 dark:bg-[#233648] text-slate-700 dark:text-white font-bold transition-all hover:opacity-80">
+                    Preview Course
+                </button>
+<button class="px-8 py-3 rounded-xl bg-primary text-white font-bold shadow-xl shadow-primary/20 transition-all hover:scale-[1.02] active:scale-95">
+                    Finish &amp; Publish
+                </button>
+</footer>
+</div>
+</main>
+<!-- Floating Help Button -->
+<button class="fixed bottom-8 right-8 size-14 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-all z-[100]">
+<span class="material-symbols-outlined text-[28px]">help</span>
+</button>
+</body></html>

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Student Learning Portal - Course Player</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#137fec",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Lexend', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .fill-icon {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-40 w-full border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111a22] px-6 py-3 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<div class="flex items-center gap-3">
+<div class="bg-primary p-1.5 rounded-lg">
+<span class="material-symbols-outlined text-white">school</span>
+</div>
+<h2 class="text-lg font-bold tracking-tight">Student Learning Portal</h2>
+</div>
+<nav class="hidden md:flex items-center gap-6">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Dashboard</a>
+<a class="text-sm font-medium text-primary" href="#">My Courses</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Resources</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">Community</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-sm">search</span>
+<input class="bg-slate-100 dark:bg-[#233648] border-none rounded-lg pl-10 pr-4 py-2 text-sm w-64 focus:ring-2 focus:ring-primary" placeholder="Search lessons..." type="text"/>
+</div>
+<button class="p-2 rounded-lg bg-slate-100 dark:bg-[#233648] hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-xl">notifications</span>
+</button>
+<div class="w-10 h-10 rounded-full bg-slate-300 dark:bg-slate-700 border-2 border-primary" data-alt="User profile avatar circle"></div>
+</div>
+</header>
+<div class="flex flex-1 overflow-hidden">
+<!-- Sidebar Navigation -->
+<aside class="w-80 border-r border-slate-200 dark:border-slate-800 bg-white dark:bg-[#111a22] flex flex-col overflow-y-auto">
+<div class="p-6">
+<h3 class="font-bold text-lg mb-1">UI Design Fundamentals</h3>
+<div class="flex items-center justify-between mb-4">
+<span class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Progress</span>
+<span class="text-xs font-bold text-primary">65%</span>
+</div>
+<div class="w-full bg-slate-200 dark:bg-slate-800 rounded-full h-2">
+<div class="bg-primary h-2 rounded-full w-[65%]"></div>
+</div>
+</div>
+<nav class="flex-1 px-4 space-y-6 pb-8">
+<div>
+<div class="flex items-center gap-2 px-2 py-2 text-slate-500 mb-1">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="text-xs font-bold uppercase tracking-widest">Module 1: Getting Started</span>
+</div>
+<div class="space-y-1">
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-green-500 fill-icon text-lg">check_circle</span>
+<span class="text-sm font-medium">1.1 Course Overview</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg bg-primary/10 text-primary border border-primary/20" href="#">
+<span class="material-symbols-outlined text-lg fill-icon">play_circle</span>
+<span class="text-sm font-semibold">1.2 Core Design Concepts</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-400 text-lg">article</span>
+<span class="text-sm font-medium">1.3 User Psychology</span>
+</a>
+<a class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-slate-400 text-lg">quiz</span>
+<span class="text-sm font-medium">Quiz: Module 1 Review</span>
+</a>
+</div>
+</div>
+<div>
+<div class="flex items-center gap-2 px-2 py-2 text-slate-500 mb-1">
+<span class="material-symbols-outlined text-lg">folder_open</span>
+<span class="text-xs font-bold uppercase tracking-widest">Module 2: Visual Elements</span>
+</div>
+<div class="space-y-1">
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-slate-400 text-lg">lock</span>
+<span class="text-sm font-medium">2.1 Typography Rules</span>
+</div>
+<div class="flex items-center gap-3 px-3 py-2 rounded-lg opacity-50 cursor-not-allowed">
+<span class="material-symbols-outlined text-slate-400 text-lg">lock</span>
+<span class="text-sm font-medium">2.2 Color Theory in UI</span>
+</div>
+</div>
+</div>
+</nav>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col overflow-y-auto bg-background-light dark:bg-background-dark relative">
+<div class="max-w-4xl mx-auto w-full px-8 py-12">
+<!-- Breadcrumbs -->
+<div class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+<a class="hover:text-primary" href="#">My Courses</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<a class="hover:text-primary" href="#">UI Design 101</a>
+<span class="material-symbols-outlined text-xs">chevron_right</span>
+<span class="text-slate-900 dark:text-white font-medium">Module 1.2</span>
+</div>
+<!-- Content Header -->
+<header class="mb-10">
+<h1 class="text-4xl font-bold mb-4">Lesson 1.2: Core Design Concepts</h1>
+<div class="flex items-center gap-6 text-sm text-slate-500">
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">schedule</span>
+<span>15 min read</span>
+</div>
+<div class="flex items-center gap-1">
+<span class="material-symbols-outlined text-sm">visibility</span>
+<span>1.2k students viewed</span>
+</div>
+</div>
+</header>
+<!-- Lesson Content -->
+<article class="prose prose-slate dark:prose-invert max-w-none text-lg leading-relaxed space-y-6">
+<p>
+                        This lesson covers the fundamental principles of UI design, including alignment, proximity, and contrast. Understanding these concepts is crucial for creating intuitive user interfaces. We will explore how these elements work together to guide the user's eye and improve usability across different platforms.
+                    </p>
+<div class="aspect-video w-full rounded-xl bg-slate-200 dark:bg-slate-800 mb-8 flex items-center justify-center relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent" data-alt="Abstract UI design layout pattern background"></div>
+<div class="z-10 text-center">
+<button class="bg-primary hover:bg-primary/90 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-xl transition-transform hover:scale-105">
+<span class="material-symbols-outlined text-4xl fill-icon">play_arrow</span>
+</button>
+<p class="mt-4 font-medium text-slate-600 dark:text-slate-300">Watch: Visual Hierarchy Masterclass</p>
+</div>
+</div>
+<h2 class="text-2xl font-bold mt-12 mb-4">1. Alignment</h2>
+<p>
+                        Alignment creates a sharp, ordered appearance. Nothing should be placed on a page arbitrarily. Every element should have some visual connection with another element on the page. This creates a clean, sophisticated look.
+                    </p>
+<ul class="list-disc pl-6 space-y-3">
+<li><strong>Horizontal Alignment:</strong> Keeping elements in a row balanced.</li>
+<li><strong>Vertical Alignment:</strong> Ensuring text and icons share a common baseline.</li>
+<li><strong>Edge Alignment:</strong> Using grids to define the boundaries of your layout.</li>
+</ul>
+<h2 class="text-2xl font-bold mt-12 mb-4">2. Proximity</h2>
+<p>
+                        Proximity is about grouping related items together. When several items are in close proximity to each other, they become one visual unit rather than several separate units. This helps organize information, reduces clutter, and gives the reader a clear structure.
+                    </p>
+<div class="bg-primary/5 border border-primary/20 rounded-xl p-6 my-8">
+<h3 class="font-bold flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-primary">lightbulb</span>
+                            Pro Tip
+                        </h3>
+<p class="text-sm">Whitespace is not "empty space." It is a powerful tool for defining proximity. Use it to separate distinct modules of content.</p>
+</div>
+</article>
+<!-- Bottom Navigation Actions -->
+<div class="mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<button class="flex-1 sm:flex-none px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            Previous Lesson
+                        </button>
+<button class="flex-1 sm:flex-none px-6 py-3 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-sm hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+                            Mark as Complete
+                        </button>
+</div>
+<div class="w-full sm:w-auto">
+<button class="w-full px-8 py-4 rounded-xl bg-primary text-white font-bold text-base shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:translate-y-[-2px] flex items-center justify-center gap-2 group">
+                            Take Quiz: Core Concepts
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Quiz Overlay (Hidden by default, shown as an example state) -->
+<!-- Remove 'hidden' class to see the quiz interface -->
+<div class="fixed inset-0 z-50 bg-background-light dark:bg-background-dark overflow-y-auto hidden">
+<!-- Quiz Header -->
+<div class="sticky top-0 bg-white dark:bg-[#111a22] border-b border-slate-200 dark:border-slate-800 px-6 py-4 flex items-center justify-between shadow-sm">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div>
+<h3 class="font-bold text-lg">Quiz: Core Design Concepts</h3>
+<p class="text-xs text-slate-500">Question 3 of 10</p>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="hidden md:flex items-center gap-3">
+<div class="text-right">
+<p class="text-xs font-bold uppercase text-slate-400">Time Remaining</p>
+<p class="text-lg font-bold text-primary tabular-nums">12:45</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">timer</span>
+</div>
+<button class="bg-primary px-6 py-2 rounded-lg text-white font-bold text-sm">Submit Quiz</button>
+</div>
+</div>
+<!-- Quiz Progress Bar -->
+<div class="w-full h-1.5 bg-slate-200 dark:bg-slate-800">
+<div class="bg-primary h-full w-[30%]"></div>
+</div>
+<!-- Quiz Content -->
+<div class="max-w-3xl mx-auto px-6 py-16">
+<div class="mb-10">
+<span class="inline-block px-3 py-1 bg-primary/10 text-primary text-xs font-bold rounded-full mb-4">MULTIPLE CHOICE</span>
+<h2 class="text-2xl font-bold leading-tight">Which design principle refers to the visual grouping of related items to organize information?</h2>
+</div>
+<div class="space-y-4">
+<button class="w-full text-left p-6 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all flex items-center gap-4 group">
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center group-hover:border-primary">
+<span class="text-xs font-bold">A</span>
+</div>
+<span class="text-lg font-medium">Alignment</span>
+</button>
+<button class="w-full text-left p-6 rounded-xl border-2 border-primary bg-primary/5 transition-all flex items-center gap-4">
+<div class="w-6 h-6 rounded-full bg-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-sm fill-icon">check</span>
+</div>
+<span class="text-lg font-bold text-primary">Proximity</span>
+</button>
+<button class="w-full text-left p-6 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all flex items-center gap-4 group">
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center group-hover:border-primary">
+<span class="text-xs font-bold">C</span>
+</div>
+<span class="text-lg font-medium">Contrast</span>
+</button>
+<button class="w-full text-left p-6 rounded-xl border-2 border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all flex items-center gap-4 group">
+<div class="w-6 h-6 rounded-full border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center group-hover:border-primary">
+<span class="text-xs font-bold">D</span>
+</div>
+<span class="text-lg font-medium">Repetition</span>
+</button>
+</div>
+<div class="mt-12 flex items-center justify-between">
+<button class="px-8 py-3 font-bold text-slate-500 hover:text-primary transition-colors flex items-center gap-2">
+<span class="material-symbols-outlined">west</span>
+                    Previous Question
+                </button>
+<button class="bg-slate-900 dark:bg-white dark:text-slate-900 text-white px-10 py-3 rounded-xl font-bold shadow-lg flex items-center gap-2">
+                    Next Question
+                    <span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>
